@@ -1,6 +1,6 @@
 Outer Link Redirector
 ==========================
-Replaces outer links like `<a href="http://..."></a>` to redirection URL like `<a href="/link?url=http..."></a>`
+Replaces outer links like `<a href="http://..."></a>` to links like `<a href="/link?url=http..."></a>`
 
 [README RUS](http://www.elisdn.ru/blog/20/pereadresaciia-vneshnih-ssilok-na-promejutochnuyu-stranicu)
 
