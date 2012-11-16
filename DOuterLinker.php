@@ -1,8 +1,5 @@
 <?php
 /**
- * @author ElisDN <mail@elisdn.ru>
- * @link http://www.elisdn.ru
- *
  * Replaces outer links like '<a href="http://..."></a>'
  * to redirection URL like '<a href="/link?url=http..."></a>'
  *
@@ -20,9 +17,9 @@
  *     $linker->setPrefix('/site/link?a=');
  *     echo $linker->replace($html);
  * </pre>
- * 
- * @property mixed $protocol
- * @property string $prefix
+ *
+ * @author ElisDN <mail@elisdn.ru>
+ * @link http://www.elisdn.ru
  */
 class DOuterLinker
 {
