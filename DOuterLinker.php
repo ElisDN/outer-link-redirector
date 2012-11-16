@@ -5,9 +5,9 @@
  *
  * Inline usage:
  * <pre>
- *     echo DOuterLinker::load()->replace($html);
- *     echo DOuterLinker::load()->setPrefix('/link?a=')->replace($html);
- *     echo DOuterLinker::load()->addProtocols(array('dc'))->setPrefix('/link?a=')->replace($html);
+ *     echo DOuterLinker::load()->process($html);
+ *     echo DOuterLinker::load()->setPrefix('/link?a=')->process($html);
+ *     echo DOuterLinker::load()->addProtocols(array('dc'))->setPrefix('/link?a=')->process($html);
  * </pre>
  *
  * Classic usage:
@@ -15,7 +15,7 @@
  *     $linker = new DOuterLinker();
  *     $linker->setProtocols(array('http'));
  *     $linker->setPrefix('/site/link?a=');
- *     echo $linker->replace($html);
+ *     echo $linker->process($html);
  * </pre>
  *
  * @author ElisDN <mail@elisdn.ru>
@@ -72,7 +72,7 @@ class DOuterLinker
      * @param string $html source HTML content
      * @return string processed content
      */
-    public function replace($html)
+    public function process($html)
     {
         $protocols = implode('|', $this->_protocols);
         return preg_replace_callback('@\<a(?P<before>[^>]+)href=(?P<beginquote>[\'"]?)(?P<protocol>'. $protocols . ')://(?P<url>[^\'"\s]+)(?P<endquote>[\'"]?)(?P<after>[^>]+)?\>@i', array(get_class($this),'pregCallback') , $html);
