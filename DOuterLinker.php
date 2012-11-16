@@ -42,7 +42,7 @@ class DOuterLinker
      */
     public function addProtocols($protocols)
     {
-		$this->_protocols = array_unique(array_merge($this->_protocols, $protocols));
+        $this->_protocols = array_unique(array_merge($this->_protocols, $protocols));
         return $this;
     }
 
@@ -53,7 +53,7 @@ class DOuterLinker
      */
     public function setProtocols($protocols)
     {
-		$this->_protocols = $protocols;
+        $this->_protocols = $protocols;
         return $this;
     }
 
@@ -64,7 +64,7 @@ class DOuterLinker
      */
     public function setPrefix($value)
     {
-		$this->_prefix = $value;
+        $this->_prefix = $value;
         return $this;
     }
 
