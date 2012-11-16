@@ -13,7 +13,7 @@
  *     echo DOuterLinker::load()->addProtocols(array('dc'))->setPrefix('/link?a=')->replace($html);
  * </pre>
  *
- *
+ * Classic usage:
  * <pre>
  *     $linker = new DOuterLinker();
  *     $linker->setProtocols(array('http'));
