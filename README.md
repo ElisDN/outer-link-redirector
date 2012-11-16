@@ -35,7 +35,7 @@ or
 $linker = new DOuterLinker();
 $linker->setProtocols(array('http'));
 $linker->setPrefix('/link?a=');
-echo $linker->replace($post->text); 
+echo $linker->replace($html); 
 ~~~
 
 You can override options in your subclass `OuterLinker`
@@ -53,7 +53,7 @@ and use it instead of the original class:
 
 ~~~
 [php]
-<?php echo OuterLinker::load()->replace($post->text); ?>
+<?php echo OuterLinker::load()->replace($html); ?>
 ~~~
 
 You can also process content once before saving data to DB.
