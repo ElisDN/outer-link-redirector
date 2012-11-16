@@ -56,7 +56,7 @@ and use it instead of the original class:
 <?php echo OuterLinker::load()->replace($post->text); ?>
 ~~~
 
-You can save process content once before saving data to DB.
+You can also process content once before saving data to DB.
 
 Usage in Yii Framework model
 ------
