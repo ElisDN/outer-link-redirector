@@ -16,16 +16,16 @@ Processing HTML-content in View:
 
 ~~~
 [php]
-<?php echo DOuterLinker::load()->replace($html); ?>
+<?php echo DOuterLinker::load()->process($html); ?>
 ~~~
 
 For configuring use `addProtocols()`, `setProtocols()` and  `setPrefix()` methods:
 
 ~~~
 [php]
-echo DOuterLinker::load()->setPrefix('/link?a=')->replace($html);
-echo DOuterLinker::load()->addProtocols(array('dc'))->setPrefix('/link?a=')->replace($html);
-echo DOuterLinker::load()->setProtocols(array('http', 'https'))->replace($html);
+echo DOuterLinker::load()->setPrefix('/link?a=')->process($html);
+echo DOuterLinker::load()->addProtocols(array('dc'))->setPrefix('/link?a=')->process($html);
+echo DOuterLinker::load()->setProtocols(array('http', 'https'))->process($html);
 ~~~
 
 or
@@ -35,7 +35,7 @@ or
 $linker = new DOuterLinker();
 $linker->setProtocols(array('http'));
 $linker->setPrefix('/link?a=');
-echo $linker->replace($html); 
+echo $linker->process($html); 
 ~~~
 
 You can override options in your subclass `OuterLinker`
@@ -53,7 +53,7 @@ and use it instead of the original class:
 
 ~~~
 [php]
-<?php echo OuterLinker::load()->replace($html); ?>
+<?php echo OuterLinker::load()->process($html); ?>
 ~~~
 
 You can also process content once before saving data to DB.
@@ -71,7 +71,7 @@ class Post extends CActiveRecord
     {
         if (parent::beforeSave())
 		{          
-            $this->purified_text = DOuterLinker::load()->replace($this->text);
+            $this->purified_text = DOuterLinker::load()->process($this->text);
             return true;        
 		} 
 		else
@@ -81,7 +81,7 @@ class Post extends CActiveRecord
     protected function afterFind()
     {				
 		if (!$this->purified_text)
-			$this->purified_text = DOuterLinker::load()->replace($this->text);	
+			$this->purified_text = DOuterLinker::load()->process($this->text);	
 			
         parent::afterFind();
     }
@@ -126,7 +126,7 @@ class Post extends CActiveRecord
 		{          
 			// process links
 			if ($this->purified_text)
-				$this->purified_text = DOuterLinker::load()->replace($this->purified_text);
+				$this->purified_text = DOuterLinker::load()->process($this->purified_text);
 				
             return true;
         } 
@@ -146,7 +146,7 @@ class Post extends CActiveRecord
 		if ($isEmpty && $this->purified_text)
 		{
 			// process links
-			$this->purified_text = DOuterLinker::load()->setPrefix('site/link?url=')->replace($this->purified_text);
+			$this->purified_text = DOuterLinker::load()->setPrefix('site/link?url=')->process($this->purified_text);
 			// and call DPurifyTextBehavior::updateModel(). It save result to DB.
 			$this->updateModel();
 		}		
