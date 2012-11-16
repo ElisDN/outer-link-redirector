@@ -19,7 +19,7 @@ Processing HTML-content in View:
 <?php echo DOuterLinker::load()->replace($html); ?>
 ~~~
 
-For configurating use `addProtocols()`, `setProtocols()` and  `setPrefix()` methods:
+For configuring use `addProtocols()`, `setProtocols()` and  `setPrefix()` methods:
 
 ~~~
 [php]
