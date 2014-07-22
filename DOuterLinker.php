@@ -27,7 +27,7 @@ class DOuterLinker
     protected $_prefix;
 
     private function __construct() {
-       $_prefix = Yii::app()->createUrl('site/link').'?url=';
+       $this->_prefix = Yii::app()->createUrl('site/link').'?url=';
     }
 
     /**
