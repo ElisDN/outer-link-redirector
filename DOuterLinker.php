@@ -24,7 +24,11 @@
 class DOuterLinker
 {
     protected $_protocols = array('ftp', 'http', 'https');
-    protected $_prefix = '/link?url=';
+    protected $_prefix;
+
+    private function __construct() {
+       $_prefix = Yii::app()->createUrl('site/link').'?url=';
+    }
 
     /**
      * @return DOuterLinker
